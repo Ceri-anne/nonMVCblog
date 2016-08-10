@@ -1,5 +1,5 @@
 <?php include 'common.php' ;
-
+//nicki says hello//
 
 use function Blog\View\display;
 use function Blog\App\get_most_recent_articles;
