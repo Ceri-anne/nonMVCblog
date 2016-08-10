@@ -1,0 +1,89 @@
+/*#758ECD lilacy light blue / #f2d7ee Lilac / #d3bcc0 ‘red grey’ /#a5668b dark pink / #69306d purple / 
+#0e103d dark bluey purple #56667A dark grey* #f2f6fb white with greytint good for background*/
+
+
+
+
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	color:#56667A
+	margin-left: 15px;
+	margin-right: 15px;
+}
+h1, h2, h3 { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; }
+h1 {
+	font-size: 1.8em;
+	color:#69306d;
+}
+h2 {
+	font-size: 1.6em;
+	color: #d3bcc0;
+}
+h3 {
+	font-size: 1.4em;
+	color:#f2d7ee;
+}
+/*Format "bold" text within heading 3 styles*/
+h3 > strong {
+	color: 0e103d;
+}
+/*Colour of all hyperlinks*/
+a {
+	color: 758ECD;
+}
+/*First paragraph after h3*/
+h3 + p {
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	color: #000066;
+}
+/*Change hyperlink colour within paragraphs following h3*/
+h3 + p a {
+	color: #253f76;
+
+
+
+
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #f2f6fb;
+}
+
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+
+/*#TopBanner {
+    height: 50px;
+    width: 100%;
+    height: 75px;
+    text-align: left;
+    font-size: 1.2em;
+}
+#TopBanner img {
+    float: right;
+    position: relative;
+    right: 30px;
+    
+}
+*/
+
+input[type=text] {
+    color: #56667A;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+}
+
+input[type=submit]:hover {
+    background-color: #d3bcc0;
+}
+
+
+input[type=text]:focus {
+    background-color: #758ECD;
+}
