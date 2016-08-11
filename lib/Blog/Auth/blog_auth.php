@@ -5,9 +5,9 @@ namespace Blog\Auth;
 session_start();
 
 function login($pdo, $username, $password) {
-	$user= \Blog\Db\read_user($pdo, $username, $password);
+	$user=\Blog\Db\read_user($pdo, $username);
 	
-        if (!empty($user)) {
+        if (!empty($user) and password_verify($password,$user['password'])) {
             $_SESSION['username'] = $username;
             $_SESSION['user']=$user;
             header('Location: ' . $_SESSION['redirectURL']);

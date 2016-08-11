@@ -4,10 +4,10 @@ namespace Blog\Db;
 use PDO;
 	
 //USER FUNCTIONS
-function read_user($pdo, $username, $password) {
+function read_user($pdo, $username) {
 	
-        $stmt = $pdo->prepare("SELECT * FROM users where username= :username and password = :password");
-	$stmt->execute(['username' => $username, 'password' => $password]);
+        $stmt = $pdo->prepare("SELECT * FROM users where username= :username");
+	$stmt->execute(['username' => $username]);
 	$user = $stmt->fetch(PDO::FETCH_ASSOC);
         return $user;
    
@@ -31,11 +31,11 @@ function create_user($pdo, $user,$role) {
                 . "  values (:email, :firstname, :lastname, :password , :role, :username)");
        
 	$stmt->execute(['email'=>$user['email'],'firstname'=>$user['firstname']
-                        ,'lastname'=>$user['lastname'],'password'=>$user['password'], 'role'=>$role, 'username'=>$user['username']
+                        ,'lastname'=>$user['lastname'],'password'=>password_hash($user['password'],PASSWORD_DEFAULT),
+                        'role'=>$role, 'username'=>$user['username']
                 ]);
 	
-}
-
+}  
 function read_article_id($pdo, $article_id) {
 	$stmt = $pdo->prepare("SELECT * FROM articles WHERE id = :id");
 	$stmt->execute(['id' => $article_id]);
