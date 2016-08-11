@@ -1,16 +1,18 @@
 <div id="LoginForm">
-    <h1>Existing User Login</h1>
-    <form action="login.php" method="post">
+    <h1>Please log in with your username and password</h1>
+    <form name="login" action="login.php" method="post">
       <div>
       <label for="username">Username: </label>
-      <input name="username" type="text" required/>
+      <input name="username" type="text"  autofocus required placeholder="Enter your username"/>
       </div>
 
       <div>
       <label for="password">Password: </label>
-      <input name="password" type="password" required/>
+      <input name="password" type="password" required placeholder="Enter your password"/>
       </div>
 
       <button type="submit" value="login">Login</button>
     </form>
+    
+    
 </div>

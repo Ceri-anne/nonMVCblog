@@ -1,37 +1,36 @@
-<div id="RegisterForm">
-    <h1>New User Registration</h1>
+<div id="RegisterForm"></div>
+    <h1>Not yet registered? Enter your details here:</h1>
     <form action="login.php" method="post">
       <div>
       <label for="firstname">First name: </label>
-      <input name="firstname" type="text" required/>
+      <input name="firstname" type="text" required pattern=".{2,}" placeholder="Enter your first name"/>
       </div>
 
       <div>
       <label for="lastname">Last name: </label>
-      <input name="lastname" type="text" required/>
+      <input name="lastname" type="text" required pattern=".{2,}"  placeholder="Enter your last name"/>
       </div>
 
         <div>
       <label for="username">Username: </label>
-      <input name="username" type="text" required/>
+      <input name="username" type="text" required pattern=".{5,}"  placeholder="Choose a username (min 5 characters)"/>
       </div>
 
          <div>
       <label for="email">Email: </label>
-      <input name="email" type="text" required/>
+      <input name="email" type="text" required  placeholder="Enter your email address"/>
       </div>
 
       <div>
       <label for="password">Password: </label>
-      <input name="password" type="password" required/>
+      <input name="password" type="password" required  placeholder="Enter a password (at least 6 characters with an uppercase letter and a number"
+             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/>
       </div>
 
       <div>
       <label for="verifypassword">Verify Password: </label>
-      <input name="verifypassword" type="password"/>
+      <input name="verifypassword" type="password"  placeholder="Enter your password again"/>
       </div>
-
-
 
       <button type="submit" value="register">Register</button>
     </form>
