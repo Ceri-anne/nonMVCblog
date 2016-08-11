@@ -25,12 +25,14 @@ function create_article($pdo, $article) {
 }
 
 // BLOG FUNCTIONS
-function create_user($pdo, $user) {
+function create_user($pdo, $user,$role) {
     
-        $stmt = $pdo->prepare("INSERT INTO users (email,fullname,password,role,username) "
-                . "  values (:email, 'testname','testpassword',1,:username)");
+        $stmt = $pdo->prepare("INSERT INTO users (email,firstname,lastname,password,role,username) "
+                . "  values (:email, :firstname, :lastname, :password , :role, :username)");
        
-	$stmt->execute(['email'=>$user['email'],'username'=>$user['username']]);
+	$stmt->execute(['email'=>$user['email'],'firstname'=>$user['firstname']
+                        ,'lastname'=>$user['lastname'],'password'=>$user['password'], 'role'=>$role, 'username'=>$user['username']
+                ]);
 	
 }
 

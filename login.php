@@ -11,8 +11,14 @@ use function Blog\View\display;
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if (isset($_POST['firstname'])){
-	 \Blog\Db\create_user($pdo, $_POST);
-         \Blog\Auth\login($pdo, $_POST['username'], $_POST['pa;ssword']);
+        
+       if ($_POST['password'] != $_POST['verifypassword']) {
+           echo "Passwords do not match";
+       }
+       else {
+	 \Blog\Db\create_user($pdo, $_POST, array_search('user',ROLES));
+         \Blog\Auth\login($pdo, $_POST['username'], $_POST['password']);
+       }
             
          }
     else {
