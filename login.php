@@ -10,7 +10,7 @@ use function Blog\View\display;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    if (isset($_POST['firstname'])){
+    if (isset($_POST['register'])){
         
        if ($_POST['password'] != $_POST['verifypassword']) {
            echo "Passwords do not match";
