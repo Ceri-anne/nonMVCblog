@@ -6,20 +6,15 @@ use function Blog\Auth\require_login;
 
 require_login();
     
+$article = \Blog\App\get_article($pdo, $_GET['id'] ?? 1);
 
-
-$view_vars = \Blog\App\get_article($pdo, $_GET['id'] ?? 1);
-//
-//$article = ?;
-//comments = ?;
 ?>
 
 <?php echo display('__header'); ?>
 
  <p>You are logged in as <?= $_SESSION['username'] ?></p><br>
- <h1>Article Title</h1>
-<?php echo display('article', ['article' => $articles]); ?>
  
+ <?php echo display('article', $article); ?>
 
  
  <h2>Comments</h2>

@@ -37,7 +37,12 @@ function create_user($pdo, $user,$role) {
 	
 }  
 function read_article_id($pdo, $article_id) {
-	$stmt = $pdo->prepare("SELECT * FROM articles WHERE id = :id");
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id 
+                                WHERE a.id = :id");
 	$stmt->execute(['id' => $article_id]);
 	return $stmt->fetch();
 }
