@@ -48,7 +48,11 @@ function read_article_id($pdo, $article_id) {
 }
 
 function read_most_recent_articles($pdo) {
-	$stmt = $pdo->prepare("SELECT * FROM articles ORDER BY modifieddate DESC Limit 3 ");
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id  ORDER BY modifieddate DESC Limit 3 ");
 	$stmt->execute();
         return $stmt->fetchall();
 }
