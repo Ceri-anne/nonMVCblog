@@ -1,7 +1,7 @@
 /*#758ECD lilacy light blue / #f2d7ee Lilac / #d3bcc0 ‘red grey’ /#a5668b dark pink / #69306d purple / 
 #0e103d dark bluey purple #56667A dark grey* #f2f6fb white with greytint good for background*/
 
-
+//NICKI
 
 
 body {
@@ -17,18 +17,14 @@ h1 {
 	color:#69306d;
 }
 h2 {
-	font-size: 1.6em;
-	color: #d3bcc0;
+	font-size: 1.4em;
+	color:  #f2d7ee;
 }
 h3 {
-	font-size: 1.4em;
-	color:#f2d7ee;
+	font-size: 1.2em;
+	color:#a5668b;
 }
-/*Format "bold" text within heading 3 styles*/
-h3 > strong {
-	color: 0e103d;
-}
-/*Colour of all hyperlinks*/
+
 a {
 	color: 758ECD;
 }
@@ -42,7 +38,12 @@ h3 + p {
 h3 + p a {
 	color: #253f76;
 
-
+ 
+#wrapper {
+    max-width: 940px;
+    margin: 0 auto;
+    padding:0 5%;
+}
 
 
 .header img {
