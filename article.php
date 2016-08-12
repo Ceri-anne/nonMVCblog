@@ -8,6 +8,8 @@ require_login();
     
 $article = \Blog\App\get_article($pdo, $_GET['id'] ?? 1);
 $comments = \Blog\Db\read_comments($pdo,$article['article']['id']);
+
+print_r($_SESSION['username']);
 ?>
 
 <?php echo display('__header'); ?>
@@ -24,8 +26,10 @@ $comments = \Blog\Db\read_comments($pdo,$article['article']['id']);
       echo display('newcomment'); 
  }
  else {
-     \Blog\App\add_comment($pdo, $_POST['comment'],$article['article']['id'],$_SESSION['user']['id']);
- }
+     $new_comment = \Blog\App\add_comment($pdo, $_POST['comment'],$article['article']['id'],$_SESSION['user']['id']);
+     echo display('comment',['comment' =>['text'=>$new_comment['comment'],'username'=>$_SESSION['username']],'heading'=>"New comment"]);
+         
+  }
 ?>
 
 <?php echo display('__footer'); ?>

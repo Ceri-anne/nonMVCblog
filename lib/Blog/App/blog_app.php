@@ -21,5 +21,5 @@ function get_most_recent_articles($pdo) {
 
 function add_comment($pdo, $comment,$article_id,$user_id) {
 	$new_id = create_comment($pdo,$comment,$article_id,$user_id);
-	//return ['comment' => $article];
+	return ['comment'=>$comment];
 }
