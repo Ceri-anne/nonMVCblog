@@ -9,7 +9,6 @@ require_login();
 $article = \Blog\App\get_article($pdo, $_GET['id'] ?? 1);
 $comments = \Blog\Db\read_comments($pdo,$article['article']['id']);
 
-print_r($_SESSION['username']);
 ?>
 
 <?php echo display('__header'); ?>
