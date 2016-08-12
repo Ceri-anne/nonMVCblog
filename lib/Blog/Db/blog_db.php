@@ -75,3 +75,27 @@ function update_article($pdo, $article_id, $new_article) {
                     , 'body'  => $new_article['body'] ,'author' => $new_article['author']
                     ,'category' => $new_article['category'], 'status' => $new_article['status']]);
 }
+
+function create_comment($pdo, $comment,$article_id,$user_id) {
+    
+        $stmt = $pdo->prepare("INSERT INTO comments (article_id,user_id ,text) "
+                . "  values (:article_id, :user_id , :text)");
+       
+	$stmt->execute(['text'=>$comment,'article_id'=>$article_id,'user_id'=>$user_id]);
+	
+	return  $count = $pdo->query("SELECT * FROM comments")->fetchColumn() - 1;
+}
+
+
+function read_comments($pdo,$article_id) {
+	$stmt = $pdo->prepare("SELECT b.username
+                                      ,a.text
+                                FROM `comments` a
+                                left outer JOIN		
+                                        users b
+                                ON   a.user_id=b.id
+                                WHERE a.article_id=:article_id
+                                order by a.id DESC");
+	$stmt->execute(['article_id'=>$article_id]);
+        return $stmt->fetchall();
+}

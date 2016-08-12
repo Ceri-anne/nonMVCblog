@@ -22,5 +22,3 @@ $user = $_SESSION['user'] ?? 'Guest';
 
 
 <?php echo display('__footer'); ?>
-
-//leanne test

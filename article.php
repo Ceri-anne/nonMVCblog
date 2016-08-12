@@ -7,7 +7,7 @@ use function Blog\Auth\require_login;
 require_login();
     
 $article = \Blog\App\get_article($pdo, $_GET['id'] ?? 1);
-
+$comments = \Blog\Db\read_comments($pdo,$article['article']['id']);
 ?>
 
 <?php echo display('__header'); ?>
@@ -17,13 +17,16 @@ $article = \Blog\App\get_article($pdo, $_GET['id'] ?? 1);
  <?php echo display('article', $article); ?>
 
  
- <h2>Comments</h2>
-  <?php echo display('comments' /*, ['article' => $articles]*/); ?>
+ <h2>Comments:</h2>
+  <?php echo display('comments',['comments'=> $comments,'heading'=>""]); ?>
 
-<h2>Leave a comment:</h2>
-
-<?php echo display('newcomment'); ?>
-
+<?php if($_SERVER['REQUEST_METHOD'] == 'GET') {
+      echo display('newcomment'); 
+ }
+ else {
+     \Blog\App\add_comment($pdo, $_POST['comment'],$article['article']['id'],$_SESSION['user']['id']);
+ }
+?>
 
 <?php echo display('__footer'); ?>
 

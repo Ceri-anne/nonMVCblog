@@ -1,9 +1,6 @@
-<!--Display list of comments (foreach)-->
-<!--<div class="comment">
-By: <?php // echo $row->user; ?>
-<p>
-<?php // echo;$row->body; ?>
-</p>
-</div>-->
+<?php use function Blog\View\display;
 
-<h1>Comments displayed here</h1>
+ foreach($comments as $comment) {
+
+  echo display('comment',['comment'=> $comment,'heading'=>""]); 
+}?>
