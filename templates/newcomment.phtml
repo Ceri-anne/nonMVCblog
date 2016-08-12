@@ -1,5 +1,11 @@
-<form action="insertcomment.php" method="post">
-<!-- user needs to complete-->
-<input type="hidden" name="postid" value="<?php //your posts id ?>" />
-<input type="submit" />
-</form>
+<div id="CommentForm">
+    <h2>Add a comment</h2>
+    <form name="comment" action="article.php" method="post">
+      <div>
+      <label for="Comment">Comment: </label>
+      <input name="comment" type="text"  autofocus required placeholder="Enter your comments here..."/>
+      </div>
+      <button type="submit" id="comment" name="comment" value="comment">Submit comment</button>
+    </form>
+   
+</div>
