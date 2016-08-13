@@ -46,13 +46,6 @@ h3 + p a {
 }
 
 
-.header img {
-  float: left;
-  width: 100px;
-  height: 100px;
-  background: #f2f6fb;
-}
-
 .header h1 {
   position: relative;
   top: 18px;
