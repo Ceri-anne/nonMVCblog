@@ -13,7 +13,6 @@ $comments = \Blog\Db\read_comments($pdo,$article['article']['id']);
 
 <?php echo display('__header'); ?>
 
- <p>You are logged in as <?= $_SESSION['username'] ?></p><br>
  
  <?php echo display('article', $article); ?>
 

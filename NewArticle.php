@@ -10,7 +10,6 @@ require_login();
 
 <?php echo display('__header'); ?>
 
- <p>You are logged in as <?= $_SESSION['username'] ?></p><br>
 
  
 <?php if($_SERVER['REQUEST_METHOD'] == 'GET'): ?>

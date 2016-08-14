@@ -12,7 +12,7 @@ const DB_DSN = 'mysql:host=localhost;dbname=blog';
 const DB_USER = 'admin';
 const DB_PASS = 'Cook!e5@?';
 const DEFAULT_ARTICLE_ID = 1;
-const CATEGORIES = ['Sport','Technology','Fashion'];
+const CATEGORIES = ['Sport','Technology','Fashion','Business','Politics','Entertainment'];
 const ROLES = ['admin','user'];
 
 try {

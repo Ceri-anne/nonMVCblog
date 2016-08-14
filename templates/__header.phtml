@@ -1,4 +1,5 @@
 <?php use function Blog\View\display;?>
+<?php $username= $_SESSION['username'] ?? $_GET['username'] ?? 'Guest';?>
 <!doctype html>
 <html>
 <head>
@@ -12,6 +13,18 @@
   <h1>Welcome to the World of Superglobal Blogging</h1>
 </div>
     <?= display('links');?>
+   
+    
+    <?php if ($username == 'Guest'): ?>
+ 
+	<?=  "Please login/register to view and post articles"; ?>
+ 
+    <?php else: ?>
+
+    <?= "You are logged in as: $username" ?>
+
+    <?php endif;  ?>
+
     <?= display('searchform');?>
     <?= display('categories');?>
   
