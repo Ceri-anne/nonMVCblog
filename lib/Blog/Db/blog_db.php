@@ -143,3 +143,17 @@ function read_comment_id($pdo, $comment_id) {
 	$stmt->execute(['id' => $comment_id]);
 	return $stmt->fetch();
 }
+
+
+
+function search_articles($pdo, $name) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id 
+                                WHERE (a.title like concat('%',:name,'%')
+                                OR a.body like concat('%',:name,'%'))");
+	$stmt->execute(['name' => $name]);
+	return $stmt->fetchAll();
+}

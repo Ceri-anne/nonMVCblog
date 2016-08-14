@@ -3,7 +3,7 @@ namespace Blog\App;
 
 use function Blog\Db\create_article, Blog\Db\read_article_id , Blog\Db\read_most_recent_articles,
         Blog\Db\create_comment,  Blog\Db\read_articles_userid ,  Blog\Db\read_all_articles ,  Blog\Db\read_all_users
-        ,Blog\Db\read_comment_id;
+        ,Blog\Db\read_comment_id   ,Blog\Db\search_articles;
 
 
 function add_article($pdo, $article) {
@@ -45,5 +45,10 @@ function get_all_articles($pdo) {
 
 function get_all_users($pdo) {
     return ['users' => read_all_users($pdo)];
+    
+}
+
+function get_search_articles($pdo,$name) {
+    return ['articles' => search_articles($pdo,$name)];
     
 }
