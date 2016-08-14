@@ -168,3 +168,15 @@ function search_articles($pdo, $name) {
 	$stmt->execute(['name' => $name]);
 	return $stmt->fetchAll();
 }
+
+
+function search_articles_category($pdo, $category_id) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id 
+                                WHERE a.category= :category_id");
+	$stmt->execute(['category_id' => $category_id]);
+	return $stmt->fetchAll();
+}
