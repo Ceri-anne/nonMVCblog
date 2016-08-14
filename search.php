@@ -20,7 +20,7 @@ $articles = \Blog\App\get_search_articles($pdo, $search);
  
 <?php else: ?>
      
-<?= display('articles', ['article' => $articles['articles']]); ?>
+<?= display('articles', ['article' => $articles['articles'],'heading'=>"Results"]); ?>
 
 <?php endif;  ?>
  
