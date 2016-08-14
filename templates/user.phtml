@@ -7,5 +7,14 @@
         <p>Full name : <?= $users['firstname'] . " " . $users['lastname']; 
             ?></p>
        
-        <!--<p><?= '<a href="deleteuser.php?id=' .  $users['id'] . '">Delete</a>'; ?></p>-->
+        <p>
+             <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role']==2): ?>
+        
+                    <?=   '<a href="deleteuser.php?id=' .  $users['id'] . '">Delete</a>'; ?>
+    
+            <?php endif; ?> 
+        </p>
+   
+                     
+            
 </div>
