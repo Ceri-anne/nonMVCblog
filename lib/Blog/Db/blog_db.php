@@ -17,11 +17,12 @@ function read_user($pdo, $username) {
 function create_article($pdo, $article) {
     
         $stmt = $pdo->prepare("INSERT INTO articles (title,body ,author,category,status) "
-                . "  values (:title, :body , 1, :category, 1)");
+                . "  values (:title, :body , :author, :category, 1)");
        
-	$stmt->execute(['title'=>$article['title'],'body'=>$article['body'],'category'=>$article['category']]);
+	$stmt->execute(['title'=>$article['title'],'body'=>$article['body'],'category'=>$article['category'],
+                            'author'=>$article['author']]);
 	
-	return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn() - 1;
+	return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn();
 }
 
 // BLOG FUNCTIONS

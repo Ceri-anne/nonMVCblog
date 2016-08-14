@@ -7,7 +7,8 @@ use function Blog\Db\create_article, Blog\Db\read_article_id , Blog\Db\read_most
 
 function add_article($pdo, $article) {
 	$new_id = create_article($pdo, $article);
-	return ['article' => $article];
+        return $new_id;
+	//return ['article' => $article];
 }
 
 function get_article($pdo, $id) {
