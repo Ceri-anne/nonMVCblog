@@ -1,5 +1,6 @@
 <?php use function Blog\View\display;?>
 <?php $username= $_SESSION['username'] ?? $_GET['username'] ?? 'Guest';?>
+
 <!doctype html>
 <html>
 <head>
@@ -8,22 +9,23 @@
     <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    
+  
     <div class="header">
         <table style="height: 150px; background-color: #f2f6fb;" width="578">
-<tbody>
-<tr>
-<td style="text-align: center;">
-   <a href="index.php"><img src="img/logo.png" alt="logo" /></a>
-<h1>This is Superglobal&nbsp;</h1>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-    <?= display('links');?>
-        <h1>Welcome to the World of Superglobal Blogging</h1>
+    <tbody>
+        <tr>
+            <td style="text-align: center;">
+                <a href="index.php"><img src="img/logo.png" alt="logo" /></a>
+                <h1>This is Superglobal&nbsp;</h1>
+            </td>
+        </tr>
+    </tbody>
+        </table>
     </div>
+
+<?= display('links');?>
+      
+<h1>Welcome to the World of Superglobal Blogging</h1></div>
     
     <div class="LoginMessage">
         <?php if ($username == 'Guest'): ?>
