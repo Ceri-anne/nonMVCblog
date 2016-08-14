@@ -2,7 +2,7 @@
 namespace Blog\App;
 
 use function Blog\Db\create_article, Blog\Db\read_article_id , Blog\Db\read_most_recent_articles,
-        Blog\Db\create_comment;
+        Blog\Db\create_comment,  Blog\Db\read_articles_userid;
 
 
 function add_article($pdo, $article) {
@@ -23,4 +23,9 @@ function get_most_recent_articles($pdo) {
 function add_comment($pdo, $comment,$article_id,$user_id) {
 	$new_id = create_comment($pdo,$comment,$article_id,$user_id);
 	return ['comment'=>$comment];
+}
+
+
+function get_articles_userid($pdo,$user_id) {
+	return ['articles' => read_articles_userid($pdo, $user_id)];
 }

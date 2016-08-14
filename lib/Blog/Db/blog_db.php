@@ -100,3 +100,15 @@ function read_comments($pdo,$article_id) {
 	$stmt->execute(['article_id'=>$article_id]);
         return $stmt->fetchall();
 }
+
+
+function read_articles_userid($pdo, $user_id) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id 
+                                WHERE b.id = :id");
+	$stmt->execute(['id' => $user_id]);
+	return $stmt->fetchall();
+}
