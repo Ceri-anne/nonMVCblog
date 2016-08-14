@@ -125,3 +125,10 @@ function read_all_articles($pdo) {
 	$stmt->execute();
         return $stmt->fetchall();
 }
+
+function read_all_users($pdo) {
+	$stmt = $pdo->prepare("SELECT *
+                                FROM `users` ");
+	$stmt->execute();
+        return $stmt->fetchall();
+}

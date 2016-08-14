@@ -3,6 +3,8 @@ include 'common.php';
 
 
 use function Blog\View\display;
+
+use function Blog\Auth\require_login;
 use function Blog\App\get_all_articles;
 
 require_login();

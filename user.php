@@ -13,7 +13,7 @@ $user = $_SESSION['user'] ?? 'Guest';
 
 <?php echo display('__header'); ?>
 
-<?php echo display('user', ['users' => $user]); ?>
+<?php echo display('user', ['users' => $user,'heading'=>"Your profile page"]); ?>
  
 <h2>Your articles</h2>
 <?php $articles = get_articles_userid($pdo, $_SESSION['user']['id'])?>
