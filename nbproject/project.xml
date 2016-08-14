@@ -5,5 +5,8 @@
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
             <name>Superglobals_Blog_NoMVC</name>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>artile</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>

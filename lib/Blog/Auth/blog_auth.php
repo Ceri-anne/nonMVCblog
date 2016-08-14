@@ -20,6 +20,7 @@ function login($pdo, $username, $password) {
 
 function logout() {
 	session_destroy();
+        
 }
 
 function require_login() {

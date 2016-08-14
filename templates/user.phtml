@@ -1,6 +1,8 @@
 
 <div>
-        <h2>User: <?php echo $users['username']; ?></h2>
-	<p>ID: <?php echo $users['id']; ?></p>
-	<p>Email: <?php echo $users['email']; ?></p>
+    <h1><?= $heading ?></h1>
+        <h2>Username: <?= $users['username']; ?></h2>
+	<p>User ID: <?= $users['id']; ?></p>
+	<p>Email: <?= $users['email']; ?></p>
+	<p>Full name : <?= $users['firstname'] . " " . $users['lastname']; ?></p>
 </div>

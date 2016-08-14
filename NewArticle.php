@@ -16,8 +16,10 @@ require_login();
 <?php if($_SERVER['REQUEST_METHOD'] == 'GET'): ?>
 	<?= display('newarticle');?>
 <?php else: ?>
-
-<?php   echo display('article', \Blog\App\add_article($pdo, $_POST));?>
+        <?php $article = $_POST?>
+        <?php $article['author'] = $_SESSION['user']['id']?>
+        <?php $id =  \Blog\App\add_article($pdo, $article);?>
+        <?php  echo display('article', \Blog\App\get_article($pdo, $id));?>
 
 <?php endif;  ?>
  

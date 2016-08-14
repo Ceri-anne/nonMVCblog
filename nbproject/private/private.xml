@@ -3,10 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Superglobals_Blog_NoMVC/lib/Blog/Db/blog_db.php</file>
-            <file>file:/C:/xampp/htdocs/Superglobals_Blog_NoMVC/templates/article.phtml</file>
-            <file>file:/C:/xampp/htdocs/Superglobals_Blog_NoMVC/common.php</file>
-            <file>file:/C:/xampp/htdocs/Superglobals_Blog_NoMVC/index.php</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/css/main.css</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/templates/article.phtml</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/article.php</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/templates/comments.phtml</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/login.php</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/index.php</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/templates/articles.phtml</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/lib/Blog/App/blog_app.php</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/templates/loginform.phtml</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/templates/registerform.phtml</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/templates/newcomment.phtml</file>
+            <file>file:/C:/xampp/htdocs/nonMVCblog/lib/Blog/Db/blog_db.php</file>
         </group>
     </open-files>
 </project-private>

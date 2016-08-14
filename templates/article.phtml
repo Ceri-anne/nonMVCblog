@@ -1,11 +1,15 @@
 
 
 <div class="content post">
-    <h1 class="post-title"><?= $article['title'] ?></h1>
+    
+    <?php echo "<a href=article.php?id=" . $article['id'] . ">" ?> 
+        <h1 class="post-title"><?= $article['title'] ?></h1></a>    
     <div class="post-date">
 
             <time><?= date($article['creationdate']); ?></title>
             <?= $article['username']; ?>
     </div>
-	<?= $article['body']; ?>		
+	<?= $article['body']; ?>
+
 </div>
+

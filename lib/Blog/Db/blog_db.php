@@ -17,11 +17,12 @@ function read_user($pdo, $username) {
 function create_article($pdo, $article) {
     
         $stmt = $pdo->prepare("INSERT INTO articles (title,body ,author,category,status) "
-                . "  values (:title, :body , 1, :category, 1)");
+                . "  values (:title, :body , :author, :category, 1)");
        
-	$stmt->execute(['title'=>$article['title'],'body'=>$article['body'],'category'=>$article['category']]);
+	$stmt->execute(['title'=>$article['title'],'body'=>$article['body'],'category'=>$article['category'],
+                            'author'=>$article['author']]);
 	
-	return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn() - 1;
+	return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn();
 }
 
 // BLOG FUNCTIONS
@@ -76,14 +77,14 @@ function update_article($pdo, $article_id, $new_article) {
                     ,'category' => $new_article['category'], 'status' => $new_article['status']]);
 }
 
-function create_comment($pdo, $comment,$article_id,$user_id) {
+function create_comment($pdo, $comment) {
     
         $stmt = $pdo->prepare("INSERT INTO comments (article_id,user_id ,text) "
                 . "  values (:article_id, :user_id , :text)");
        
-	$stmt->execute(['text'=>$comment,'article_id'=>$article_id,'user_id'=>$user_id]);
+	$stmt->execute(['text'=>$comment['comment'],'article_id'=>$comment['article_id'],'user_id'=>$comment['user_id']]);
 	
-	return  $count = $pdo->query("SELECT * FROM comments")->fetchColumn() - 1;
+	return  $count = $pdo->query("SELECT * FROM comments")->fetchColumn();
 }
 
 
@@ -98,4 +99,61 @@ function read_comments($pdo,$article_id) {
                                 order by a.id DESC");
 	$stmt->execute(['article_id'=>$article_id]);
         return $stmt->fetchall();
+}
+
+
+function read_articles_userid($pdo, $user_id) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id 
+                                WHERE b.id = :id");
+	$stmt->execute(['id' => $user_id]);
+	return $stmt->fetchall();
+}
+
+
+
+
+function read_all_articles($pdo) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id ");
+	$stmt->execute();
+        return $stmt->fetchall();
+}
+
+function read_all_users($pdo) {
+	$stmt = $pdo->prepare("SELECT *
+                                FROM `users` ");
+	$stmt->execute();
+        return $stmt->fetchall();
+}
+
+function read_comment_id($pdo, $comment_id) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `comments` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.user_id=b.id 
+                                WHERE a.id = :id");
+	$stmt->execute(['id' => $comment_id]);
+	return $stmt->fetch();
+}
+
+
+
+function search_articles($pdo, $name) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id 
+                                WHERE (a.title like concat('%',:name,'%')
+                                OR a.body like concat('%',:name,'%'))");
+	$stmt->execute(['name' => $name]);
+	return $stmt->fetchAll();
 }
