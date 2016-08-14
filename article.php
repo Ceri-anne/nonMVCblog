@@ -11,30 +11,29 @@ $comments = \Blog\Db\read_comments($pdo,$article['article']['id']);
 
 ?>
 
-<?php echo display('__header'); ?>
-
- <p>You are logged in as <?= $_SESSION['username'] ?></p><br>
- 
- <?php echo display('article', $article); ?>
+<?= display('__header'); ?>
 
  
- <h2>Comments:</h2>
-  <?php echo display('comments',['comments'=> $comments,'heading'=>""]); ?>
+ <?= display('article', $article); ?>
 
-<?php if($_SERVER['REQUEST_METHOD'] == 'GET') {
-      echo display('newcomment'); 
- }
- else {
+ <?= display('comments',['comments'=> $comments,'heading'=>"Comments: "]); ?>
+
+<?php if($_SERVER['REQUEST_METHOD'] == 'GET'): ?>
+ 
+    <?= display('newcomment'); ?>
+ 
+<?php else: ?>
      
+ <?php 
      $comment = $_POST;
      $comment['article_id'] = $article['article']['id'];
      $comment['user_id'] = $_SESSION['user']['id'];
      $new_comment_id = \Blog\App\add_comment($pdo, $comment);
      $new_comment=\Blog\App\get_comment_id($pdo,$new_comment_id);
     echo display('comment',['comment' =>$new_comment['comment'],'heading'=>"New comment"]);
-    ;     
-  }
+    
 ?>
+ <?php endif; ?>
 
-<?php echo display('__footer'); ?>
+<?= display('__footer'); ?>
 

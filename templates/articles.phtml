@@ -1,8 +1,9 @@
 <?php use function Blog\View\display; ?>
 
-<?php foreach($article as $article) {
+<h1><?= $heading ?> </h1>
+<?php foreach($article as $article): ?>
     
-          echo display('article', ['article' => $article]); 
-}
+    <?= display('article', ['article' => $article]);  ?>
 
- ?>
+<?php endforeach; ?>
+

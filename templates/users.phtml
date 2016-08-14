@@ -1,6 +1,9 @@
-<?php use function Blog\View\display;
+<?php use function Blog\View\display;?>
 
- foreach($users as $users) {
+  <h1><?= $heading ?></h1>
+
+<?php foreach($users as $users): ?>
   
-  echo display('user',['users'=> $users,'heading'=>""]); 
-}?>
+  <?= display('user',['users'=> $users]);  ?>
+
+<?php endforeach; ?>

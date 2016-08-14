@@ -14,8 +14,8 @@ $articles=get_all_articles($pdo);
 
 ?>
 
-<?php echo display('__header'); ?>
+<?= display('__header'); ?>
 
-<?php    echo display('articles', ['article' => $articles['articles']]); ?>
+<?= display('articles', ['article' => $articles['articles'],'heading'=>"All Articles"]); ?>
 
-<?php echo display('__footer'); ?>
+<?= display('__footer'); ?>

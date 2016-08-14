@@ -13,6 +13,15 @@ function read_user($pdo, $username) {
    
 }
 
+function read_user_id($pdo, $user_id) {
+	
+        $stmt = $pdo->prepare("SELECT * FROM users where id= :user_id");
+	$stmt->execute(['user_id' => $user_id]);
+	$user = $stmt->fetch();
+        return $user;
+   
+}
+
 // BLOG FUNCTIONS
 function create_article($pdo, $article) {
     
@@ -35,6 +44,7 @@ function create_user($pdo, $user,$role) {
                         ,'lastname'=>$user['lastname'],'password'=>password_hash($user['password'],PASSWORD_DEFAULT),
                         'role'=>$role, 'username'=>$user['username']
                 ]);
+        return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn();
 	
 }  
 function read_article_id($pdo, $article_id) {
@@ -91,6 +101,7 @@ function create_comment($pdo, $comment) {
 function read_comments($pdo,$article_id) {
 	$stmt = $pdo->prepare("SELECT b.username
                                       ,a.text
+                                      ,a.creationdate
                                 FROM `comments` a
                                 left outer JOIN		
                                         users b
@@ -155,5 +166,17 @@ function search_articles($pdo, $name) {
                                 WHERE (a.title like concat('%',:name,'%')
                                 OR a.body like concat('%',:name,'%'))");
 	$stmt->execute(['name' => $name]);
+	return $stmt->fetchAll();
+}
+
+
+function search_articles_category($pdo, $category_id) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id 
+                                WHERE a.category= :category_id");
+	$stmt->execute(['category_id' => $category_id]);
 	return $stmt->fetchAll();
 }

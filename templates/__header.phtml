@@ -1,18 +1,20 @@
 <?php use function Blog\View\display;?>
+<?php $username= $_SESSION['username'] ?? $_GET['username'] ?? 'Guest';?>
 <!doctype html>
 <html>
 <head>
     <title>Superglobals Blog</title>
-    <!--<link rel="icon" type="image/png"  href="img/mini_logo.png">-->
+    <link rel="icon" type="image/png"  href="img/logo_mini.png">
     <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    
     <div class="header">
         <table style="height: 150px; background-color: #f2f6fb;" width="578">
 <tbody>
 <tr>
 <td style="text-align: center;">
- <img src="img/logo.png" alt="logo" />
+   <a href="index.php"><img src="img/logo.png" alt="logo" /></a>
 <h1>This is Superglobal&nbsp;</h1>
 </td>
 </tr>
@@ -20,6 +22,27 @@
 </table>
 </div>
     <?= display('links');?>
-    <?= display('searchform');?>
-  
+        <h1>Welcome to the World of Superglobal Blogging</h1>
+    </div>
+    
+    <div class="LoginMessage">
+        <?php if ($username == 'Guest'): ?>
+
+            <?=  "Please login/register to view and post articles"; ?>
+
+        <?php else: ?>
+
+        <?= "You are logged in as: $username" ?>
+
+        <?php endif;  ?>
+    </div>
+
+    <div class="SearchBox">
+        <?= display('searchform');?>
+    </div>
+    
+    <div class="CategoryList"
+        <?= display('categories');?>
+    </div>
+
   

@@ -15,10 +15,8 @@ $user = $_SESSION['user'] ?? 'Guest';
 
 <?php echo display('__header'); ?>
 
-<p>Welcome <?= $username ?></p><br>
-
     <?php
-        echo display('articles', ['article' => $top3['articles']]); ?>
+        echo display('articles', ['article' => $top3['articles'],'heading'=>"Latest Articles"]); ?>
 
 
 <?php echo display('__footer'); ?>
