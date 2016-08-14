@@ -25,9 +25,14 @@ $comments = \Blog\Db\read_comments($pdo,$article['article']['id']);
       echo display('newcomment'); 
  }
  else {
-     $new_comment = \Blog\App\add_comment($pdo, $_POST['comment'],$article['article']['id'],$_SESSION['user']['id']);
-     echo display('comment',['comment' =>['text'=>$new_comment['comment'],'username'=>$_SESSION['username']],'heading'=>"New comment"]);
-         
+     
+     $comment = $_POST;
+     $comment['article_id'] = $article['article']['id'];
+     $comment['user_id'] = $_SESSION['user']['id'];
+     $new_comment_id = \Blog\App\add_comment($pdo, $comment);
+     $new_comment=\Blog\App\get_comment_id($pdo,$new_comment_id);
+    echo display('comment',['comment' =>$new_comment['comment'],'heading'=>"New comment"]);
+    ;     
   }
 ?>
 
