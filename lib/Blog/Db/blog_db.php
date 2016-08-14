@@ -91,6 +91,7 @@ function create_comment($pdo, $comment) {
 function read_comments($pdo,$article_id) {
 	$stmt = $pdo->prepare("SELECT b.username
                                       ,a.text
+                                      ,a.creationdate
                                 FROM `comments` a
                                 left outer JOIN		
                                         users b
