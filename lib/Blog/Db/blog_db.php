@@ -13,6 +13,15 @@ function read_user($pdo, $username) {
    
 }
 
+function read_user_id($pdo, $user_id) {
+	
+        $stmt = $pdo->prepare("SELECT * FROM users where id= :user_id");
+	$stmt->execute(['user_id' => $user_id]);
+	$user = $stmt->fetch();
+        return $user;
+   
+}
+
 // BLOG FUNCTIONS
 function create_article($pdo, $article) {
     
@@ -35,6 +44,7 @@ function create_user($pdo, $user,$role) {
                         ,'lastname'=>$user['lastname'],'password'=>password_hash($user['password'],PASSWORD_DEFAULT),
                         'role'=>$role, 'username'=>$user['username']
                 ]);
+        return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn();
 	
 }  
 function read_article_id($pdo, $article_id) {

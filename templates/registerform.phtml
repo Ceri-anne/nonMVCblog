@@ -1,6 +1,6 @@
 <div id="RegisterForm"></div>
     <h1>Not yet registered? Enter your details here:</h1>
-    <form action="login.php" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <div>
       <label for="firstname">First name: </label>
       <input name="firstname" type="text" required pattern=".{2,}" placeholder="Enter your first name"/>
