@@ -8,24 +8,34 @@
     <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    
     <div class="header">
         <a href="index.php"><img src="img/logo.png" alt="logo" /></a>
-  <h1>Welcome to the World of Superglobal Blogging</h1>
-</div>
-    <?= display('links');?>
-   
+        <h1>Welcome to the World of Superglobal Blogging</h1>
+    </div>
     
-    <?php if ($username == 'Guest'): ?>
- 
-	<?=  "Please login/register to view and post articles"; ?>
- 
-    <?php else: ?>
+    <div class="menubar">
+        <?= display('links');?>
+    </div> 
+    
+    <div class="LoginMessage">
+        <?php if ($username == 'Guest'): ?>
 
-    <?= "You are logged in as: $username" ?>
+            <?=  "Please login/register to view and post articles"; ?>
 
-    <?php endif;  ?>
+        <?php else: ?>
 
-    <?= display('searchform');?>
-    <?= display('categories');?>
+        <?= "You are logged in as: $username" ?>
+
+        <?php endif;  ?>
+    </div>
+
+    <div class="SearchBox">
+        <?= display('searchform');?>
+    </div>
+    
+    <div class="CategoryList"
+        <?= display('categories');?>
+    </div>
   
   

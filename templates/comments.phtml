@@ -1,6 +1,10 @@
-<?php use function Blog\View\display;
+<?php use function Blog\View\display; ?>
 
- foreach($comments as $comment) {
+<h1><?= $heading; ?></h1>
 
-  echo display('comment',['comment'=> $comment,'heading'=>""]); 
-}?>
+<?php foreach($comments as $comment): ?>
+
+    <?= display('comment',['comment'=> $comment,'heading'=>""]) ?>
+    
+<?php endforeach; ?>
+

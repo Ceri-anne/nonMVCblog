@@ -11,12 +11,15 @@ require_login();
 $user = $_SESSION['user'] ?? 'Guest';
 ?>
 
-<?php echo display('__header'); ?>
+<?= display('__header'); ?>
 
-<?php echo display('user', ['users' => $user,'heading'=>"Your profile page"]); ?>
- 
-<h2>Your articles</h2>
+<?= display('user', ['users' => $user,'heading'=>"Your profile page"]); ?>
+
+
 <?php $articles = get_articles_userid($pdo, $_SESSION['user']['id'])?>
-<?php echo display('articles', ['article' => $articles['articles']]); ?>
-<?php echo display('__footer'); ?>
+
+
+<?= display('articles', ['article' => $articles['articles'], 'heading' => "Your articles"]); ?>
+
+<?= display('__footer'); ?>
 

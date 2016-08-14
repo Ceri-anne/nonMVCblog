@@ -13,7 +13,7 @@ $category_id=array_search($category,CATEGORIES);
 $articles = get_articles_category($pdo, $category_id);
 ?>
 
-<?php echo display('__header'); ?> 
+<?= display('__header'); ?> 
 
 <?php if (empty($articles['articles'])): ?>
  
@@ -21,9 +21,9 @@ $articles = get_articles_category($pdo, $category_id);
  
 <?php else: ?>
      
-<h1><?= $category ?></h1>
-<?php echo display('articles', ['article' => $articles['articles']]); ?>
+      
+        <?= display('articles', ['article' => $articles['articles'],'heading'=>$category]); ?>
 
 <?php endif;  ?>
 
-<?php echo display('__footer'); ?>
+<?= display('__footer'); ?>

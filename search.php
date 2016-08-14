@@ -11,7 +11,7 @@ $articles = \Blog\App\get_search_articles($pdo, $search);
 
 ?>
 
-<?php echo display('__header'); ?>
+<?= display('__header'); ?>
 
  
  <?php if (empty($articles['articles'])): ?>
@@ -20,11 +20,11 @@ $articles = \Blog\App\get_search_articles($pdo, $search);
  
 <?php else: ?>
      
-<?php echo display('articles', ['article' => $articles['articles']]); ?>
+<?= display('articles', ['article' => $articles['articles']]); ?>
 
 <?php endif;  ?>
  
  
 
-<?php echo display('__footer'); ?>
+<?= display('__footer'); ?>
 

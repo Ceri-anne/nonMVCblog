@@ -9,7 +9,6 @@ use function Blog\Db\create_article, Blog\Db\read_article_id , Blog\Db\read_most
 function add_article($pdo, $article) {
 	$new_id = create_article($pdo, $article);
         return $new_id;
-	//return ['article' => $article];
 }
 
 function get_article($pdo, $id) {
@@ -24,7 +23,6 @@ function get_most_recent_articles($pdo) {
 function add_comment($pdo, $comment) {
 	$new_id = create_comment($pdo,$comment);
 	return $new_id;
-        //return ['comment'=>$comment];
 }
 
 
