@@ -78,6 +78,11 @@ function delete_user($pdo, $username) {
 	$stmt = $pdo->prepare("DELETE FROM users WHERE username = :username");
 	$stmt->execute(['username' => $username]);
 }
+function delete_userid($pdo, $user_id) {
+	$stmt = $pdo->prepare("DELETE FROM users WHERE id = :user_id");
+	$stmt->execute(['user_id' => $user_id]);
+}
+
 
 function update_article($pdo, $article_id, $new_article) {
 	$stmt = $pdo->prepare("UPDATE articles SET title= :title, body = :body "
