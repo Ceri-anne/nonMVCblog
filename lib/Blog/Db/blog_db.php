@@ -112,3 +112,16 @@ function read_articles_userid($pdo, $user_id) {
 	$stmt->execute(['id' => $user_id]);
 	return $stmt->fetchall();
 }
+
+
+
+
+function read_all_articles($pdo) {
+	$stmt = $pdo->prepare("SELECT a.*, b.username
+                                FROM `articles` a
+                                LEFT OUTER JOIN
+                                        users b
+                                on a.author=b.id ");
+	$stmt->execute();
+        return $stmt->fetchall();
+}
