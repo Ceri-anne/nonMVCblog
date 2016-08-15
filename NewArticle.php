@@ -22,7 +22,7 @@ require_login();
 
         <?php $id =  \Blog\App\add_article($pdo, $article);?>
 
-        <?php upload_file('image_end',$id); ?>
+        <?php upload_file('image_end','articles',$id); ?>
         <?= display('article', get_article($pdo, $id));?>
 
 <?php endif;  ?>

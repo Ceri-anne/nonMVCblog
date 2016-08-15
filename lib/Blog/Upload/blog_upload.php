@@ -3,7 +3,7 @@
 namespace Blog\Upload;
 
 
-function upload_file($inputfile,$id) {
+function upload_file($inputfile,$folder,$id) {
 
    
 	if (empty($_FILES[$inputfile])) {	//handle error
@@ -24,7 +24,7 @@ function upload_file($inputfile,$id) {
 
 	//DOMAIN SPECIFIC:  eg., move the file
 	//$dstFile = 'uploads/articles' . $_FILES[$inputfile]['name'];
-           $dstFile = 'uploads/articles/'. $id;
+           $dstFile = 'uploads/' . $folder . '/'. $id . '.jpg';
                    
                    
 	if (!move_uploaded_file($tmpFile, $dstFile)) {

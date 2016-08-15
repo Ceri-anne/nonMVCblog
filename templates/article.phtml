@@ -7,7 +7,13 @@
             <time><?= date($article['creationdate']); ?></title>
             <?= $article['username']; ?>
     </div>
-	<?= $article['body']; ?>
+	
+        
+      <?php if(file_exists("uploads/articles/{$article['id']}.jpg")): ?>
+		<img src="uploads/articles/<?=$article['id'];?>.jpg" width="150" />
+	<?php endif; ?>
 
+       <?= $article['body']; ?>         
+                
 </div>
 
