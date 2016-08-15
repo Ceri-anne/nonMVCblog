@@ -20,10 +20,10 @@ require_login();
         <?php $article = $_POST?>
         <?php $article['author'] = $_SESSION['user']['id']?>
 
-        <?php upload_file('image_end'); ?>
-
         <?php $id =  \Blog\App\add_article($pdo, $article);?>
-        <?php  echo display('article', get_article($pdo, $id));?>
+
+        <?php upload_file('image_end',$id); ?>
+        <?= display('article', get_article($pdo, $id));?>
 
 <?php endif;  ?>
  

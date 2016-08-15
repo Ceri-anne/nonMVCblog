@@ -3,7 +3,7 @@
 namespace Blog\Upload;
 
 
-function upload_file($inputfile) {
+function upload_file($inputfile,$id) {
 
    
 	if (empty($_FILES[$inputfile])) {	//handle error
@@ -23,8 +23,10 @@ function upload_file($inputfile) {
 	$tmpFile = $_FILES[$inputfile]['tmp_name'];
 
 	//DOMAIN SPECIFIC:  eg., move the file
-	$dstFile = 'uploads/' . $_FILES[$inputfile]['name'];
-
+	//$dstFile = 'uploads/articles' . $_FILES[$inputfile]['name'];
+           $dstFile = 'uploads/articles/'. $id;
+                   
+                   
 	if (!move_uploaded_file($tmpFile, $dstFile)) {
 		trigger_error("Handle Error");
 	}
