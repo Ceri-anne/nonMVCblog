@@ -2,13 +2,6 @@
 #0e103d dark bluey purple #56667A dark grey* #f2f6fb white with greytint good for background*/
 
 
-#wrapper {
-    /*max-width: 940px;*/
-    width: 100%;
-    margin: 0 auto;
-    padding:0 5%;
-}
-
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size: 1em;
