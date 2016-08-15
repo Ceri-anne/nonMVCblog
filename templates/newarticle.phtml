@@ -8,14 +8,11 @@
             accept=""name="MAX_FILE_SIZE" 
             accesskey=""value="10000000" />
             
-            Choose and image for the start of your article<br>
-            <input type="file" name="image_start" />
-            
-            <br>Select a Category for your article
+           <br>Select a Category for your article
             
             <select name="category">
                 
-                <?php foreach (CATEGORIES as $category) {
+            <?php foreach (CATEGORIES as $category) {
                     echo "<option value=" . array_search($category,CATEGORIES) . ">" . $category . "</option>";} ?>
             </select>
             

@@ -14,7 +14,6 @@ const DB_PASS = 'Cook!e5@?';
 const DEFAULT_ARTICLE_ID = 1;
 const CATEGORIES = ['Sport','Technology','Fashion','Business','Politics','Entertainment'];
 const ROLES = ['admin','user'];
-
 try {
       $pdo = new PDO(DB_DSN, DB_USER, DB_PASS);
 
