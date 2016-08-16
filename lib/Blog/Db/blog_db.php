@@ -37,12 +37,12 @@ function create_article($pdo, $article) {
 // BLOG FUNCTIONS
 function create_user($pdo, $user,$role) {
     
-        $stmt = $pdo->prepare("INSERT INTO users (email,firstname,lastname,password,role,username) "
-                . "  values (:email, :firstname, :lastname, :password , :role, :username)");
+        $stmt = $pdo->prepare("INSERT INTO users (email,firstname,lastname,password,role,username,bio) "
+                . "  values (:email, :firstname, :lastname, :password , :role, :username, :bio)");
        
 	$stmt->execute(['email'=>$user['email'],'firstname'=>$user['firstname']
                         ,'lastname'=>$user['lastname'],'password'=>password_hash($user['password'],PASSWORD_DEFAULT),
-                        'role'=>$role, 'username'=>$user['username']
+                        'role'=>$role, 'username'=>$user['username'],'bio'=>$user['bio']
                 ]);
         return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn();
 	

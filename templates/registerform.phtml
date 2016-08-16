@@ -1,6 +1,13 @@
 <div id="RegisterForm"></div>
     <h1>Not yet registered? Enter your details here:</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+            method="post"      
+            enctype="multipart/form-data" >
+            
+            <input type="hidden" 
+            accept=""name="MAX_FILE_SIZE" 
+            accesskey=""value="10000000" />
+            
       <div>
       <label for="firstname">First name: </label>
       <input name="firstname" type="text" required pattern=".{2,}" placeholder="Enter your first name"/>
@@ -20,8 +27,17 @@
       <label for="email">Email: </label>
       <input name="email" type="text" required  placeholder="Enter your email address"/>
       </div>
-
+        
       <div>
+      <br>
+            A short bio: <br>
+       <textarea name="bio" rows="5" cols="30"></textarea>
+       
+      </div>
+            <br>Upload a profile pic: </br>
+            <input type="file" name="profile_pic" />
+      <div>
+          
       <label for="password">Password: </label>
       <input name="password" type="password" required  placeholder="Enter a password (at least 6 characters with an uppercase letter and a number"
              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/>
