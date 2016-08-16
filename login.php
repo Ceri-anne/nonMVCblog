@@ -5,6 +5,7 @@ include 'common.php';
 use function Blog\View\display;
 use function \Blog\Auth\login;
 use function \Blog\Db\create_user;
+use function \Blog\Upload\upload_file;
 
 ?>
 
@@ -17,10 +18,10 @@ use function \Blog\Db\create_user;
             <?= "Passwords do not match"; ?>
 
         <?php else: ?>
-                <?= create_user($pdo, $_POST, array_search('user',ROLES)); ?>
+                <?= $user_id = create_user($pdo, $_POST, array_search('user',ROLES)); ?>
+                   <?php upload_file('profile_pic','profiles',$user_id);?>
                 <?= login($pdo, $_POST['username'], $_POST['password']); ?>
-               
-               ?>
+                
         <?php endif ;?>
     <?php else: ?>
 
