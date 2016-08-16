@@ -82,6 +82,10 @@ function delete_userid($pdo, $user_id) {
 	$stmt = $pdo->prepare("DELETE FROM users WHERE id = :user_id");
 	$stmt->execute(['user_id' => $user_id]);
 }
+function delete_comment($pdo, $comment_id) {
+	$stmt = $pdo->prepare("DELETE FROM comments WHERE id = :comment_id");
+	$stmt->execute(['comment_id' => $comment_id]);
+}
 
 
 function update_article($pdo, $article_id, $new_article) {
@@ -105,8 +109,7 @@ function create_comment($pdo, $comment) {
 
 function read_comments($pdo,$article_id) {
 	$stmt = $pdo->prepare("SELECT b.username
-                                      ,a.text
-                                      ,a.creationdate
+                                     ,a.*
                                 FROM `comments` a
                                 left outer JOIN		
                                         users b

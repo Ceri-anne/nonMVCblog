@@ -10,11 +10,10 @@
         <p>
              <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role']==2): ?>
         
-                    <?=   '<a href="deleteuser.php?id=' .  $users['id'] . '">Delete</a>'; ?>
+                    <?=   '<a href="delete.php?user_id=' .  $users['id'] . '">Delete</a>'; ?>
     
             <?php endif; ?> 
         </p>
-   
-                     
+       
             
 </div>

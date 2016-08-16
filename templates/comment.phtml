@@ -1,8 +1,15 @@
 
 <div class="comment">
     <h1><?= $heading ?></h1>
-    <?= $comment['username']; ?>
-    <?= $comment['creationdate']; ?>
-    <?= $comment['text']; ?>    
+    <p><?= $comment['username']; ?></p>
+    <p><?= $comment['creationdate']; ?></p>
+    <p><?= $comment['text']; ?></p>
+        <p>
+             <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role']==2): ?>
+        
+                    <?=   '<a href="delete.php?comment_id=' .  $comment['id'] . '">Delete</a>'; ?>
+    
+            <?php endif; ?> 
+        </p>    
   
 </div>
