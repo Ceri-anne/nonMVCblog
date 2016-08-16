@@ -2,6 +2,18 @@
 #0e103d dark bluey purple #56667A dark grey* #f2f6fb white with greytint good for background*/
 
 
+
+#LoginForm {
+    width: 45%;
+    float: left;
+}
+
+#RegisterForm{
+    width: 45%;
+    float: right;
+}
+
+
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size: 1em;
@@ -69,6 +81,7 @@ input[type=text] {
 input[type=submit]:hover {
     background-color: #d3bcc0;
 }
+
 
 
 input[type=text]:focus {
