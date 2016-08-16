@@ -4,7 +4,7 @@
         <h2>Username: <?= $users['username']; ?></h2>
 	<p>User ID: <?= $users['id']; ?></p>
 	<p>Email: <?= $users['email']; ?></p>
-        <p>Full name : <?= $users['firstname'] . " " . $users['lastname']; 
+        <p>Full name: <?= $users['firstname'] . " " . $users['lastname']; 
             ?></p>
        
         <p>
@@ -14,7 +14,11 @@
     
             <?php endif; ?> 
         </p>
-   
+        <p>
+           <?php if(file_exists("uploads/profiles/{$users['id']}.jpg")): ?>
+		<img src="uploads/profiles/<?=$users['id'];?>.jpg" width="150" />
+            <?php endif; ?>
+        <p>Bio: <?= $users['bio']; ?></p>
                      
             
 </div>
