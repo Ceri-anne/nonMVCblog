@@ -7,7 +7,7 @@ use function Blog\App\get_articles_category;
 
 require_login();
     
-$category = $_GET['category'] ?? 1;
+$category =  filter_var($_GET['category'],FILTER_SANITIZE_SPECIAL_CHARS) ?? 1;
 $category_id=array_search($category,CATEGORIES);
 
 $articles = get_articles_category($pdo, $category_id);

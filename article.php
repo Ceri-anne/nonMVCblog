@@ -9,9 +9,11 @@ use function Blog\App\get_article;
 
 require_login();
     
-$article = get_article($pdo, $_GET['id'] ?? 1);
+
+$article = get_article($pdo, filter_var($_GET['id'],FILTER_SANITIZE_SPECIAL_CHARS) ?? 1);
 
 ?>
+
 <?= display('__header'); ?>
 
  

@@ -6,7 +6,7 @@ use function Blog\App\get_most_recent_articles;
 
 $top3=get_most_recent_articles($pdo);
 
-$username= $_SESSION['username'] ?? $_GET['username'] ?? 'Guest';
+$username= $_SESSION['username'] ?? filter_var($_GET['username'],FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?? 'Guest';
 
 $user = $_SESSION['user'] ?? 'Guest';
 

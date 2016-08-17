@@ -8,6 +8,8 @@ include 'lib/Blog/Auth/blog_auth.php';
 include 'lib/Blog/Upload/blog_upload.php';
 include 'lib/Blog/Db/blog_db.php';
 
+use function Blog\View\display;
+
 const DB_DSN = 'mysql:host=localhost;dbname=blog';
 const DB_USER = 'admin';
 const DB_PASS = 'Cook!e5@?';
@@ -30,8 +32,15 @@ $articles = $pdo->query("SELECT * FROM articles")->fetch(PDO::FETCH_ASSOC);
 }
 set_error_handler(function ($errorType, $errorMessage) {
     
+    display('__header'); 
+
+    display('error', ['message' => $errorMessage]); 
+
+     display('__footer'); 
+
+
   // 	add a call to view error.phtml here?
-    echo $errorMessage;
+   // echo $errorMessage;
 }
 )
 ;
