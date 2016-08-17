@@ -31,7 +31,7 @@ function create_article($pdo, $article) {
 	$stmt->execute(['title'=>$article['title'],'body'=>$article['body'],'category'=>$article['category'],
                             'author'=>$article['author']]);
 	
-	return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn();
+	return  $count = $pdo->query("SELECT max(id) FROM articles")->fetchColumn();
 }
 
 // BLOG FUNCTIONS
@@ -44,7 +44,7 @@ function create_user($pdo, $user,$role) {
                         ,'lastname'=>$user['lastname'],'password'=>password_hash($user['password'],PASSWORD_DEFAULT),
                         'role'=>$role, 'username'=>$user['username'],'bio'=>$user['bio']
                 ]);
-        return  $count = $pdo->query("SELECT count(*) FROM articles")->fetchColumn();
+        return  $count = $pdo->query("SELECT max(id) FROM articles")->fetchColumn();
 	
 }  
 function read_article_id($pdo, $article_id) {
@@ -103,7 +103,7 @@ function create_comment($pdo, $comment) {
        
 	$stmt->execute(['text'=>$comment['comment'],'article_id'=>$comment['article_id'],'user_id'=>$comment['user_id']]);
 	
-	return  $count = $pdo->query("SELECT * FROM comments")->fetchColumn();
+	return  $count = $pdo->query("SELECT max(id) FROM comments")->fetchColumn();
 }
 
 
